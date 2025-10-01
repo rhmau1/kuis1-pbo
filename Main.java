@@ -63,7 +63,7 @@ public class Main {
                     for (Kursus k : daftarKursus) {
                         k.tampilkanInfoKursus();
                     }
-                    System.out.print("Masukkan ID Kursus yang ingin didaftar: ");
+                    System.out.print("\nMasukkan ID Kursus yang ingin didaftar: ");
                     String idKursus = sc.nextLine();
                     Kursus kursusDipilih = null;
                     for (Kursus k : daftarKursus) {
@@ -76,62 +76,7 @@ public class Main {
                         System.out.println("Kursus tidak ditemukan!");
                         continue;
                     }
-                    peserta.daftarKursus(kursusDipilih.getJudul());
-                    System.out.println("Harga kursus: Rp " + kursusDipilih.getHarga());
-                    System.out.println("Pilih metode pembayaran:");
-                    System.out.println("1. Bank");
-                    System.out.println("2. Cash");
-                    System.out.println("3. Ewallet");
-                    System.out.print("Pilihan: ");
-                    String metode = sc.nextLine();
-                    Pembayaran pembayaran = null;
-                    if (metode.equals("1")) {
-                        System.out.print("Nama Bank: ");
-                        String namaBank = sc.nextLine();
-                        System.out.print("Nomor Rekening: ");
-                        String norek = sc.nextLine();
-                        System.out.print("Nama Pemilik: ");
-                        String namaPemilik = sc.nextLine();
-                        System.out.print("Jumlah transfer: ");
-                        double jumlah = Double.parseDouble(sc.nextLine());
-                        pembayaran = new PembayaranBank(UUID.randomUUID().toString(), kursusDipilih.getHarga(),
-                                new Date().toString(), namaBank, norek, namaPemilik);
-                        if (jumlah == kursusDipilih.getHarga()) {
-                            pembayaran.prosesPembayaran();
-                        } else {
-                            System.out.println("Jumlah transfer tidak sesuai harga kursus!");
-                        }
-                    } else if (metode.equals("2")) {
-                        System.out.print("Nama Penerima: ");
-                        String namaPenerima = sc.nextLine();
-                        System.out.print("Lokasi Pembayaran: ");
-                        String lokasi = sc.nextLine();
-                        System.out.print("Uang diterima: ");
-                        double uang = Double.parseDouble(sc.nextLine());
-                        pembayaran = new PembayaranCash(UUID.randomUUID().toString(), kursusDipilih.getHarga(),
-                                new Date().toString(), "Pending", namaPenerima, uang, lokasi);
-                        if (uang >= kursusDipilih.getHarga()) {
-                            pembayaran.prosesPembayaran();
-                        } else {
-                            System.out.println("Uang yang dibayarkan kurang dari harga kursus!");
-                        }
-                    } else if (metode.equals("3")) {
-                        System.out.print("Nama Ewallet: ");
-                        String namaWallet = sc.nextLine();
-                        System.out.print("Nomor Wallet: ");
-                        String nomorWallet = sc.nextLine();
-                        System.out.print("Saldo Wallet: ");
-                        double saldo = Double.parseDouble(sc.nextLine());
-                        pembayaran = new PembayaranEwallet(UUID.randomUUID().toString(), kursusDipilih.getHarga(),
-                                new Date().toString(), "Pending", namaWallet, nomorWallet, saldo);
-                        if (saldo >= kursusDipilih.getHarga()) {
-                            pembayaran.prosesPembayaran();
-                        } else {
-                            System.out.println("Saldo tidak mencukupi!");
-                        }
-                    } else {
-                        System.out.println("Metode pembayaran tidak valid!");
-                    }
+                    peserta.daftarKursus(kursusDipilih);
                 } else if (sub.equalsIgnoreCase("c")) {
                     if (daftarPeserta.isEmpty()) {
                         System.out.println("Belum ada peserta terdaftar.");
