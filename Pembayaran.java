@@ -36,6 +36,10 @@ public class Pembayaran {
         System.out.println("Pembayaran dengan ID " + idPembayaran + " telah diproses.");
     }
     public String getInfoPembayaran() {
-        return "ID Pembayaran: " + idPembayaran + ", Jumlah: " + jumlah + ", Tanggal: " + tanggal + ", Status: " + status;
+        return "ID Pembayaran: " + idPembayaran + "\n"+
+        "Jumlah: " + jumlah +"\n"+ 
+        "Tanggal: " + tanggal +"\n"+ 
+        "Status: " + status + "\n"+
+        "------------------------------------------------\n";
     }
 }
