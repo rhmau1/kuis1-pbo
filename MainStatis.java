@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MainStatis {
     public static void main(String[] args) {
         System.out.println("=== SISTEM MANAJEMEN KURSUS (DATA STATIS) ===\n");
@@ -95,5 +97,55 @@ public class MainStatis {
         peserta3.setStatus(true);
         System.out.println("Status baru: " + (peserta3.isStatusAktif() ? "Aktif" : "Tidak Aktif"));
         peserta3.daftarKursus("Database Management");
+        System.out.println();
+
+        // Membuat konten: Artikel, Video
+        Artikel artikel1 = new Artikel("Pengenalan OOP", 800);
+        Video video1 = new Video("Tutorial Java Dasar", 15);
+
+        // Membuat soal pilgan dan esai
+        SoalPilgan pilgan1 = new SoalPilgan(
+            "Apa itu OOP?",
+            Arrays.asList("Object Oriented Programming", "Open Office Program", "Other Option Provided")
+        );
+        SoalPilgan pilgan2 = new SoalPilgan(
+            "Keyword untuk inheritance di Java?",
+            Arrays.asList("extends", "implements", "inherits")
+        );
+        SoalEsai esai1 = new SoalEsai("Jelaskan konsep enkapsulasi!", 50);
+
+        // Membuat kuis pilgan dan esai
+        KuisPilgan kuisPilgan = new KuisPilgan("Kuis OOP Pilihan Ganda", 2);
+        kuisPilgan.tambahSoal(pilgan1);
+        kuisPilgan.tambahSoal(pilgan2);
+
+        KuisEsai kuisEsai = new KuisEsai("Kuis OOP Esai", 1);
+        kuisEsai.tambahSoal(esai1);
+
+        // Membuat kursus dan menambah konten
+        Kursus kursusJava = new Kursus("KRS001", "Java OOP Fundamentals", "Belajar OOP dengan Java", 250000);
+        kursusJava.tambahKonten(artikel1);
+        kursusJava.tambahKonten(video1);
+        kursusJava.tambahKonten(kuisPilgan);
+        kursusJava.tambahKonten(kuisEsai);
+
+        // Menampilkan seluruh konten kursus
+        kursusJava.tampilkanKonten();
+
+        // Demonstrasi method tampilkanKonten pada masing-masing konten
+        System.out.println("\n========== DEMONSTRASI METHOD KONTEN ==========");
+        artikel1.tampilkanKonten();
+        video1.tampilkanKonten();
+        kuisPilgan.tampilkanKonten();
+        kuisEsai.tampilkanKonten();
+
+        // Demonstrasi setter dan getter pada konten
+        artikel1.tampilkanKonten();
+        artikel1.setJudul("OOP Lanjutan");
+        artikel1.tampilkanKonten();
+
+        // Demonstrasi setter dan getter pada kursus
+        kursusJava.setHarga(300000);
+        System.out.println("Harga kursus setelah update: " + kursusJava.getHarga());
     }
 }
