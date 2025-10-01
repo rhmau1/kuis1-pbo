@@ -1,17 +1,17 @@
 public class Instruktur extends Person {
     private String keahlian;
-    private double rating;
+    // private double rating;
 
     // Constructor
     public Instruktur() {
         super();
-        this.rating = 0.0;
+        // this.rating = 0.0;
     }
 
-    public Instruktur(String id, String nama, String email, String telepon, String keahlian, double rating) {
+    public Instruktur(String id, String nama, String email, String telepon, String keahlian) {
         super(id, nama, email, telepon);
         this.keahlian = keahlian;
-        this.rating = rating;
+        // this.rating = rating;
     }
 
     // Getter methods
@@ -19,22 +19,22 @@ public class Instruktur extends Person {
         return keahlian;
     }
 
-    public double getRating() {
-        return rating;
-    }
+    // public double getRating() {
+    // return rating;
+    // }
 
     // Setter methods
     public void setKeahlian(String keahlian) {
         this.keahlian = keahlian;
     }
 
-    public void setRating(double rating) {
-        if (rating >= 0.0 && rating <= 5.0) {
-            this.rating = rating;
-        } else {
-            System.out.println("Rating harus antara 0.0 sampai 5.0");
-        }
-    }
+    // public void setRating(double rating) {
+    // if (rating >= 0.0 && rating <= 5.0) {
+    // this.rating = rating;
+    // } else {
+    // System.out.println("Rating harus antara 0.0 sampai 5.0");
+    // }
+    // }
 
     // Method mengajar dengan parameter nama kursus
     public void mengajar(String namaKursus) {
@@ -45,7 +45,7 @@ public class Instruktur extends Person {
     @Override
     public String getInfo() {
         return super.getInfo() + "\n" +
-               "Keahlian: " + keahlian + "\n" +
-               "Rating: " + rating;
+                "Keahlian: " + keahlian;
+        // "Rating: " + rating;
     }
 }
