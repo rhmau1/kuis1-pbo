@@ -60,4 +60,13 @@ public class Kursus {
             k.tampilkanKonten();
         }
     }
+
+    public void tampilkanInfoKursus() {
+        System.out.println("\n=== Info Kursus ===");
+        System.out.println("ID Kursus   : " + idKursus);
+        System.out.println("Judul       : " + judul);
+        System.out.println("Deskripsi   : " + deskripsi);
+        System.out.println("Harga       : Rp " + String.format("%,.0f", harga));
+    }
+
 }
