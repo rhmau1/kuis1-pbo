@@ -2,7 +2,7 @@ public class Kuis extends Konten {
     protected int jumlahSoal;
 
     public Kuis(String judul, int jumlahSoal) {
-        super(judul);
+        super(judul); 
         this.jumlahSoal = jumlahSoal;
     }
 
