@@ -5,10 +5,10 @@ public class Pembayaran {
     protected String status;
 
     public Pembayaran(String idPembayaran, double jumlah, String tanggal, String status) {
-        this.idPembayaran = "";
-        this.jumlah = 0.0;
-        this.tanggal = "";
-        this.status = "Pending";
+    this.idPembayaran = idPembayaran;
+    this.jumlah = jumlah;
+    this.tanggal = tanggal;
+    this.status = status;
     }
     public String getIdPembayaran() {
         return idPembayaran;
